@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decision Tools - Intelligent Decision Framework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="decision-tools-page">
+    
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h1>ID<span>Framework</span></h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="decision-tools.html" class="active">Decision Tools</a></li>
+                    <li><a href="study.html">Study</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header-light">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="header-badge-light">
+                    <i class="fas fa-sliders-h"></i> Project Decision Tool
+                </div>
+                <h1>Decision <span class="gradient-text-light">Tools</span></h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN TOOLS SECTION -->
+    <section class="decision-tools-light">
+        <div class="container">
+            <div class="tools-grid-light">
+                
+                <!-- INPUT COLUMN -->
+                <aside class="input-column-light">
+                    <div class="form-card-light">
+                        <div class="form-header-light">
+                            <i class="fas fa-sliders-h"></i>
+                            <h2>Input Parameters</h2>
+                            <p>All parameters are normalized to a 0-100 scale for uniform processing.</p>
+                        </div>
+                        
+                        <form id="projectForm">
+                            <div class="input-group-light">
+                                <div class="input-label-group-light">
+                                    <label for="reqClarity">
+                                        <i class="fas fa-clipboard-list"></i> Requirement Clarity
+                                    </label>
+                                    <span class="live-value-light" id="reqClarityValue">70</span>
+                                </div>
+                                <input class="slider-light" id="reqClarity" type="range" min="0" max="100" value="70">
+                                <div class="slider-scale">
+                                    <span>Unclear</span>
+                                    <span>Moderate</span>
+                                    <span>Clear</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group-light">
+                                <div class="input-label-group-light">
+                                    <label for="projectSize">
+                                        <i class="fas fa-chart-simple"></i> Project Size
+                                    </label>
+                                    <span class="live-value-light" id="projectSizeValue">55</span>
+                                </div>
+                                <input class="slider-light" id="projectSize" type="range" min="0" max="100" value="55">
+                                <div class="slider-scale">
+                                    <span>Small</span>
+                                    <span>Medium</span>
+                                    <span>Large</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group-light">
+                                <div class="input-label-group-light">
+                                    <label for="teamExp">
+                                        <i class="fas fa-users"></i> Team Experience
+                                    </label>
+                                    <span class="live-value-light" id="teamExpValue">60</span>
+                                </div>
+                                <input class="slider-light" id="teamExp" type="range" min="0" max="100" value="60">
+                                <div class="slider-scale">
+                                    <span>Low</span>
+                                    <span>Moderate</span>
+                                    <span>High</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group-light">
+                                <div class="input-label-group-light">
+                                    <label for="complexity">
+                                        <i class="fas fa-microchip"></i> Complexity
+                                    </label>
+                                    <span class="live-value-light" id="complexityValue">55</span>
+                                </div>
+                                <input class="slider-light" id="complexity" type="range" min="0" max="100" value="55">
+                                <div class="slider-scale">
+                                    <span>Simple</span>
+                                    <span>Moderate</span>
+                                    <span>Complex</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group-light">
+                                <div class="input-label-group-light">
+                                    <label for="timeline">
+                                        <i class="fas fa-calendar-alt"></i> Timeline Pressure
+                                    </label>
+                                    <span class="live-value-light" id="timelineValue">50</span>
+                                </div>
+                                <input class="slider-light" id="timeline" type="range" min="0" max="100" value="50">
+                                <div class="slider-scale">
+                                    <span>Relaxed</span>
+                                    <span>Moderate</span>
+                                    <span>Tight</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
+
+                <!-- RESULTS COLUMN -->
+                <div class="results-column-light" id="analysisReport">
+                    
+                    <!-- Main Outcome Card -->
+                    <div class="result-card-light outcome-card-light">
+                        <div class="result-head-light">
+                            <div class="head-left-light">
+                                <i class="fas fa-chart-pie"></i>
+                                <h3>Results</h3>
+                            </div>
+                            <div id="modelBadgeLight" class="model-badge-light">
+                                <i class="fas fa-sync-alt"></i> Live
+                            </div>
+                        </div>
+                        
+                        <div class="metrics-grid-light">
+                            <div class="metric-card-light">
+                                <div class="metric-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                <div class="metric-details">
+                                    <span class="metric-label">Risk Value</span>
+                                    <span class="metric-value" id="riskScore">48.33</span>
+                                    <span class="metric-subvalue" id="riskLevel">Medium Risk</span>
+                                    <div class="metric-bar"><div class="metric-bar-fill risk-fill" id="riskFill" style="width: 48.33%"></div></div>
+                                </div>
+                            </div>
+                            <div class="metric-card-light">
+                                <div class="metric-icon"><i class="fas fa-coins"></i></div>
+                                <div class="metric-details">
+                                    <span class="metric-label">Cost Estimate</span>
+                                    <span class="metric-value" id="costEstimate">112.75</span>
+                                    <span class="metric-subvalue">relative units</span>
+                                    <div class="metric-bar"><div class="metric-bar-fill" id="costFill" style="width: 56.38%"></div></div>
+                                </div>
+                            </div>
+                            <div class="metric-card-light">
+                                <div class="metric-icon"><i class="fas fa-diagram-project"></i></div>
+                                <div class="metric-details">
+                                    <span class="metric-label">Recommended SDLC</span>
+                                    <span class="metric-value" id="sdlcMetric">Incremental</span>
+                                    <span class="metric-subvalue" id="sdlcRule">Balanced rule output</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-box-light">
+                            <div class="rec-header-light">
+                                <i class="fas fa-microchip"></i>
+                                <span>Recommended SDLC Model</span>
+                            </div>
+                            <p id="recommendedModel" class="model-name-light"><strong id="modelName">Incremental</strong></p>
+                            <p id="modelReason" class="model-reasoning-light">Balanced approach for moderate project conditions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Formula Section -->
+                    <div class="result-card-light formula-card-light">
+                        <div class="card-header-light">
+                            <i class="fas fa-square-root-variable"></i>
+                            <h3>Formula Processing</h3>
+                        </div>
+                        <div class="formula-grid-light">
+                            <div class="formula-item-light">
+                                <span>Risk Formula</span>
+                                <strong>Risk = (Complexity + Timeline + (100 - Experience)) / 3</strong>
+                                <p id="riskFormulaValues">Risk = (55 + 50 + (100 - 60)) / 3 = 48.33</p>
+                            </div>
+                            <div class="formula-item-light">
+                                <span>Cost Formula</span>
+                                <strong>Cost = Size x (1 + Complexity/100 + Timeline/100)</strong>
+                                <p id="costFormulaValues">Cost = 55 x (1 + 55/100 + 50/100) = 112.75</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-grid-light">
+                        <div class="result-card-light chart-card-light">
+                            <div class="card-header-light">
+                                <i class="fas fa-chart-pie"></i>
+                                <h3>Risk Distribution</h3>
+                                <p>Complexity, timeline pressure, and inverse experience contributions.</p>
+                            </div>
+                            <div class="premium-donut-layout">
+                                <div class="chart-container-light premium-chart-container">
+                                    <canvas id="riskChartLight"></canvas>
+                                </div>
+                                <div class="risk-factor-panel" id="riskFactorPanel">
+                                    <div class="risk-factor-row risk-factor-row--complexity">
+                                        <span class="risk-factor-dot"></span>
+                                        <div>
+                                            <strong>Complexity</strong>
+                                            <small id="complexityContribution">37.93% contribution · value 55</small>
+                                        </div>
+                                    </div>
+                                    <div class="risk-factor-row risk-factor-row--timeline">
+                                        <span class="risk-factor-dot"></span>
+                                        <div>
+                                            <strong>Timeline</strong>
+                                            <small id="timelineContribution">34.48% contribution · value 50</small>
+                                        </div>
+                                    </div>
+                                    <div class="risk-factor-row risk-factor-row--experience">
+                                        <span class="risk-factor-dot"></span>
+                                        <div>
+                                            <strong>Inverse Experience</strong>
+                                            <small id="experienceContribution">27.59% contribution · value 40</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-values-light" id="riskDistributionValues">
+                                Complexity: 55 | Timeline: 50 | Experience inverse: 40
+                            </div>
+                        </div>
+
+                        <div class="result-card-light chart-card-light">
+                            <div class="card-header-light">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>Risk vs Timeline</h3>
+                                <p>Y-axis risk is recalculated from the paper formula as timeline changes.</p>
+                            </div>
+                            <div class="chart-container-light">
+                                <canvas id="riskTimelineChart"></canvas>
+                            </div>
+                            <div class="chart-values-light" id="riskTimelineValues">Current point updates from slider input</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-light">
+        <div class="container">
+            <div class="footer-bottom-light">
+                <p>&copy; 2026 SY CS Group 2, VIT Pune. All rights reserved.</p>
+                <div class="footer-links-light">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="decision-tools.js"></script>
+</body>
+</html>
